@@ -1,21 +1,17 @@
 name: Trigger Tests from FWMS
 
-# Trigger Tests on push to master and from FWMS repository dispatch
-on: 
-  push:
-    branches: [ master ]
-  repository_dispatch:
+# Trigger Tests on FWMS repository dispatch
+on: [repository_dispatch]
 
 jobs:
 # Trigger echo and test when receive action 'ping' from FWMS
   receive-ping:
     runs-on: ubuntu-latest
     steps:
-    - name: Event Information
-      if: github.event.action == 'ping'
-      run: |
-            echo "Event '${{ github.event.action }}' received from '${{ github.event.client_payload.repository }}'"
-
+      - name: Event Information
+        run: |
+          echo "Event '${{ github.event.action }}' received from '${{ github.event.client_payload.repository }}'"
+          
 # .NET restore, build, test
   build:
     runs-on: ubuntu-latest
