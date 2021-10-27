@@ -1,10 +1,33 @@
 name: Trigger Tests from FWMS
 
-on: [repository_dispatch]
+# Trigger Tests on push to master and from FWMS repository dispatch
+on: 
+  push:
+    branches: [ master ]
+  repository_dispatch:
+
 jobs:
-  ping-pong:
+# Trigger echo and test when receive action 'ping' from FWMS
+  receive-ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Event Information
-        run: |
-          echo "Event '${{ github.event.action }}' received from '${{ github.event.client_payload.repository }}'"
+    - name: Event Information
+      if: github.event.action == 'ping'
+      run: |
+            echo "Event '${{ github.event.action }}' received from '${{ github.event.client_payload.repository }}'"
+            
+# .NET restore, build, test
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
