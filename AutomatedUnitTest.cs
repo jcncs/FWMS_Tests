@@ -26,6 +26,18 @@ public class AutomatedUnitTest : IDisposable
         _driver.FindElement(By.Id("submitBtn")).Click();
         Assert.Pass();
     }
+    
+    [Test]
+    public void Access_View_Donations()
+    {
+        _driver.Navigate().GoToUrl("https://fwms-heroku.herokuapp.com/Admin/Login");
+        _driver.FindElement(By.Id("userName")).SendKeys("Admin");
+        _driver.FindElement(By.Id("pwdHash")).SendKeys("Password12345");
+        _driver.FindElement(By.Id("submitBtn")).Click();
+        _driver.Navigate().GoToUrl("https://fwms-heroku.herokuapp.com/Donations");
+        Assert.Pass();
+    }
+    
     public void Dispose()
     {
         _driver.Quit();
