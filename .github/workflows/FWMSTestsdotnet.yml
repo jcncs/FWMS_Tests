@@ -17,7 +17,7 @@ jobs:
             echo "Event '${{ github.event.action }}' received from '${{ github.event.client_payload.repository }}'"
             
 # .NET restore, build, test
-  build:
+  runautotest:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -31,3 +31,15 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+      
+  pong:
+    # Trigger repository dispatch 'pong' back to FWMS
+    needs: runautotest
+    runs-on: ubuntu-latest
+    steps:
+    - name: PONG - Dispatch response to received PING
+      run: |
+        curl -X POST https://api.github.com/repos/jcncs/FWMS/dispatches \
+        -H 'Accept: application/vnd.github.everest-preview+json' \
+        -u ${{ secrets.FWMS_ACCESS_TOKEN }} \
+        --data '{"event_type": "pong", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
