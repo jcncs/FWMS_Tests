@@ -20,7 +20,7 @@ public class AutomatedUnitTest : IDisposable
     [Test]
     public void Login_to_FWMS()
     {
-        _driver.Navigate().GoToUrl("https://fwms-heroku.herokuapp.com/Admin/Login");
+        _driver.Navigate().GoToUrl("https://fwms-stg.herokuapp.com/Admin/Login");
         _driver.FindElement(By.Id("userName")).SendKeys("Admin");
         _driver.FindElement(By.Id("pwdHash")).SendKeys("Password12345");
         _driver.FindElement(By.Id("submitBtn")).Click();
@@ -30,7 +30,7 @@ public class AutomatedUnitTest : IDisposable
     [Test]
     public void Access_View_Donations()
     {
-        _driver.Navigate().GoToUrl("https://fwms-heroku.herokuapp.com/Admin/Login");
+        _driver.Navigate().GoToUrl("https://fwms-stg.herokuapp.com/Admin/Login");
         _driver.FindElement(By.Id("userName")).SendKeys("Admin");
         _driver.FindElement(By.Id("pwdHash")).SendKeys("Password12345");
         _driver.FindElement(By.Id("submitBtn")).Click();
