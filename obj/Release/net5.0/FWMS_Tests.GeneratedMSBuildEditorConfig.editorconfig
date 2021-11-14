@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = FWMS_Tests
-build_property.ProjectDir = C:\Users\p1308523\Source\Repos\FWMS_Tests\
+build_property.ProjectDir = C:\Users\p1308523\source\repos\FWMS_Tests\

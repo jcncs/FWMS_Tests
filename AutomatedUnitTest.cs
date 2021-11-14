@@ -17,8 +17,6 @@ public class AutomatedUnitTest : IDisposable
         new DriverManager().SetUpDriver(new ChromeConfig());
         Console.WriteLine("Setup");
         _driver = new ChromeDriver(opt);
-
-        var a = DateTime.Today.AddDays(1).ToString("yyyy-MM-dd HH:mm:ss");
     }
 
     [Test]
@@ -28,7 +26,6 @@ public class AutomatedUnitTest : IDisposable
         _driver.FindElement(By.Id("userName")).SendKeys("Admin");
         _driver.FindElement(By.Id("pwdHash")).SendKeys("Password12345");
         _driver.FindElement(By.Id("submitBtn")).Click();
-        Assert.Pass();
     }
 
     [Test]
@@ -39,7 +36,6 @@ public class AutomatedUnitTest : IDisposable
         _driver.FindElement(By.Id("pwdHash")).SendKeys("Password12345");
         _driver.FindElement(By.Id("submitBtn")).Click();
         _driver.Navigate().GoToUrl("https://fwms-heroku.herokuapp.com/Donations");
-        Assert.Pass();
     }
 
     [Test]
@@ -55,7 +51,7 @@ public class AutomatedUnitTest : IDisposable
         _driver.FindElement(By.Id("donationName")).SendKeys("Test Buns");
         _driver.FindElement(By.Id("quantity")).SendKeys("5");
         _driver.FindElement(By.Id("ExpiryDate")).Click();
-        _driver.FindElement(By.Id("ExpiryDate")).SendKeys("2021-12-31 00:00:00");
+        _driver.FindElement(By.Id("ExpiryDate")).SendKeys(DateTime.Now.AddDays(1).ToString("yyyy-MM-dd HH:mm:ss"));
         IWebElement LocationSelect = _driver.FindElement(By.Name("LocationId"));
         SelectElement selectItem = new SelectElement(LocationSelect);
         selectItem.SelectByText("Four Seasons");
