@@ -10,6 +10,7 @@ using OpenQA.Selenium.Interactions;
 public class AutomatedUnitTest : IDisposable
 {
     private readonly ChromeDriver _driver;
+    private readonly string testUsername, testPw;
     public AutomatedUnitTest()
     {
         ChromeOptions opt = new ChromeOptions();
@@ -17,14 +18,16 @@ public class AutomatedUnitTest : IDisposable
         new DriverManager().SetUpDriver(new ChromeConfig());
         Console.WriteLine("Setup");
         _driver = new ChromeDriver(opt);
+        testUsername = "Admin";
+        testPw = "Password12345";
     }
 
     [Test]
     public void Login_to_FWMS()
     {
         _driver.Navigate().GoToUrl("https://fwms-stg.herokuapp.com/Admin/Login");
-        _driver.FindElement(By.Id("userName")).SendKeys("Admin");
-        _driver.FindElement(By.Id("pwdHash")).SendKeys("Password12345");
+        _driver.FindElement(By.Id("userName")).SendKeys(testUsername);
+        _driver.FindElement(By.Id("pwdHash")).SendKeys(testPw);
         _driver.FindElement(By.Id("submitBtn")).Click();
     }
 
@@ -32,8 +35,8 @@ public class AutomatedUnitTest : IDisposable
     public void Access_View_Donations()
     {
         _driver.Navigate().GoToUrl("https://fwms-stg.herokuapp.com/Admin/Login");
-        _driver.FindElement(By.Id("userName")).SendKeys("Admin");
-        _driver.FindElement(By.Id("pwdHash")).SendKeys("Password12345");
+        _driver.FindElement(By.Id("userName")).SendKeys(testUsername);
+        _driver.FindElement(By.Id("pwdHash")).SendKeys(testPw);
         _driver.FindElement(By.Id("submitBtn")).Click();
         _driver.Navigate().GoToUrl("https://fwms-heroku.herokuapp.com/Donations");
     }
@@ -42,8 +45,8 @@ public class AutomatedUnitTest : IDisposable
     public void Create_New_Donation()
     {
         _driver.Navigate().GoToUrl("https://fwms-stg.herokuapp.com/Admin/Login");
-        _driver.FindElement(By.Id("userName")).SendKeys("Admin");
-        _driver.FindElement(By.Id("pwdHash")).SendKeys("Password12345");
+        _driver.FindElement(By.Id("userName")).SendKeys(testUsername);
+        _driver.FindElement(By.Id("pwdHash")).SendKeys(testPw);
         _driver.FindElement(By.Id("submitBtn")).Click();
         _driver.Navigate().GoToUrl("https://fwms-stg.herokuapp.com/Donations/CreateDonation");
         _driver.Manage().Window.Size = new System.Drawing.Size(1093, 694);
@@ -66,8 +69,8 @@ public class AutomatedUnitTest : IDisposable
     public void CreateCollection()
     {
         _driver.Navigate().GoToUrl("https://fwms-stg.herokuapp.com/Admin/Login");
-        _driver.FindElement(By.Id("userName")).SendKeys("Admin");
-        _driver.FindElement(By.Id("pwdHash")).SendKeys("Password12345");
+        _driver.FindElement(By.Id("userName")).SendKeys(testUsername);
+        _driver.FindElement(By.Id("pwdHash")).SendKeys(testPw);
         _driver.FindElement(By.Id("submitBtn")).Click();
         _driver.Navigate().GoToUrl("https://fwms-stg.herokuapp.com/Collections/CreateCollection");
         _driver.Manage().Window.Size = new System.Drawing.Size(1382, 744);
