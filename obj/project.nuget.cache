@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "UM3Tsrwl3zxhBMo0h/hXzFt+zVwja/H98dpSxVZYlnBA00z7tvaFbceQ1GO71cfFmkLfFcFqU5qnp3pPL/EmzQ==",
+  "dgSpecHash": "oebacsiJo9S/cEcdLHNN6H655uf46orpLyvl+Mcvxy1ZbVw81ko0NDJTaNfUNHJTaN7A3iNaMjoXiYunBaeWjA==",
   "success": true,
   "projectFilePath": "C:\\Users\\p1308523\\source\\repos\\FWMS_Tests\\FWMS_Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\p1308523\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
     "C:\\Users\\p1308523\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
+    "C:\\Users\\p1308523\\.nuget\\packages\\dotnetseleniumextras.waithelpers\\3.11.0\\dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
     "C:\\Users\\p1308523\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",
     "C:\\Users\\p1308523\\.nuget\\packages\\microsoft.dotnet.internalabstractions\\1.0.0\\microsoft.dotnet.internalabstractions.1.0.0.nupkg.sha512",
     "C:\\Users\\p1308523\\.nuget\\packages\\microsoft.net.test.sdk\\16.9.4\\microsoft.net.test.sdk.16.9.4.nupkg.sha512",
@@ -21,6 +22,7 @@
     "C:\\Users\\p1308523\\.nuget\\packages\\nunit\\3.13.1\\nunit.3.13.1.nupkg.sha512",
     "C:\\Users\\p1308523\\.nuget\\packages\\nunit3testadapter\\3.17.0\\nunit3testadapter.3.17.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
+    "C:\\Users\\p1308523\\.nuget\\packages\\selenium.support\\4.0.0\\selenium.support.4.0.0.nupkg.sha512",
     "C:\\Users\\p1308523\\.nuget\\packages\\selenium.webdriver\\4.0.0\\selenium.webdriver.4.0.0.nupkg.sha512",
     "C:\\Users\\p1308523\\.nuget\\packages\\selenium.webdriver.chromedriver\\94.0.4606.6100\\selenium.webdriver.chromedriver.94.0.4606.6100.nupkg.sha512",
     "C:\\Users\\p1308523\\.nuget\\packages\\sharpziplib\\1.2.0\\sharpziplib.1.2.0.nupkg.sha512",
